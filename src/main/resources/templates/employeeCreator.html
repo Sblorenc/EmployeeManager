@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+      <head>
+		  <meta charset="UTF-8">
+		  <title>CreateYourEmployee</title>
+	  </head>
+	  <body>
+		  <form action="#" th:action="@{employeeCreator}" th:object="${employee}" method="post">
+			Firstname  <input type="text" id="firstname" name="firstname">
+			Secondname <input type="text" id="lastname" name="lastname">
+			Employment Date <input type="date" id="employmentDate" name="employmentDate">
+			Salary <input type="number" id="salary" name="salary">
+			<input type="submit">
+		  </form>
+	  </body>
+     
+</html>
