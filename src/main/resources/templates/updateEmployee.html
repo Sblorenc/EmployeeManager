@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+	
+	
+<head>
+	
+</head>
+<body>
+	<form action=# th:action=@{updateEmployee} th:object=${employee} method="post">
+		Firstname 		<input type="text" th:value="${employee.firstname}" id="firstname" name="firstname">
+		Lastname 		<input type="text" th:value="${employee.lastname}" id="lastname" name="lastname">
+		Employment Date <input type="date" th:value=${employee.employmentDate} id="employmentDate" name="employmentDate">
+		Salary 			<input type="number"th:value=${employee.salary} id="salary" name="salary">
+						<input type="hidden" th:value="${employee.id}" id="employeeId" name="employeeId">
+						<input type="submit" value="update">
+	</form>
+</body>
+</html>

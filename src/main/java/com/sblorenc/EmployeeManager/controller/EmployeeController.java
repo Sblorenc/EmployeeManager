@@ -48,18 +48,31 @@ public class EmployeeController {
 		return "employeeById";
 	}
 	@GetMapping("deleteEmployee")
-		public String deleteEmployeeById(@RequestParam String employeeId, Model model) {
+		public String deleteEmployeeById(@RequestParam Long employeeId, Model model) {
 			model.addAttribute("employeeId", employeeId);
 		return "deleteEmployee";
 	}
 
 	@PostMapping("deleteEmployee")
-		public String deleteEmployeeById(@RequestParam String employeeId) {
-		Long employeeIdToLong = Long.parseLong(employeeId);
-		employeeService.deleteById(employeeIdToLong);
+		public String deleteEmployeeById(@RequestParam Long employeeId) {
+		employeeService.deleteById(employeeId);
 		return "redirect:listOfEmployees";
 	}
-		
+	@GetMapping("updateEmployee")
+	public String updateEmployee(@RequestParam Long employeeId, Model model) {
+		model.addAttribute("employee", employeeService.findById(employeeId));
+		return "updateEmployee";
+	}
+	@PostMapping("updateEmployee")
+	public String updateEmployee(@RequestParam String firstname, @RequestParam String lastname, @RequestParam double salary, @RequestParam LocalDate employmentDate, @RequestParam Long employeeId) {
+		Employee employee = employeeService.findById(employeeId);
+		employee.setFirstname(firstname);
+		employee.setLastname(lastname);
+		employee.setEmploymentDate(employmentDate);
+		employee.setSalary(salary);
+		employeeService.update(employee);
+		return "redirect:listOfEmployees";
+	}
 		
 }
 
