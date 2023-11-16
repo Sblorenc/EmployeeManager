@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.sblorenc.EmployeeManager.entity.Department;
 import com.sblorenc.EmployeeManager.entity.Employee;
 import com.sblorenc.EmployeeManager.repository.EmployeeRepository;
 
@@ -41,5 +42,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void update(Employee employee) {
 		employeeRepository.save(employee);
+	}
+	@Override
+	public List<Employee>findByDepartment(Department department){
+		return employeeRepository.findByDepartment(department);
 	}
 }

@@ -19,7 +19,7 @@ public class EmployeeController {
 	@GetMapping("employeeCreator")
 	public String EmployeeCreator(Model model) {
 		model.addAttribute("employee", new Employee());
-		return "employeeCreator";
+		return "employeeTemplates/employeeCreator";
 	}
 	
 	@PostMapping ("employeeCreator")
@@ -36,21 +36,21 @@ public class EmployeeController {
 	@GetMapping("listOfEmployees")
 		public String getListOfEmployees(Model model) {
 		model.addAttribute("employeesList",employeeService.findAll());
-		return "listOfEmployees";
+		return "employeeTemplates/listOfEmployees";
 	}
 	@GetMapping("employeeByIdForm")
 		public String employeeByIdForm() {
-			return "employeeByIdForm";
+			return "employeeTemplates/employeeByIdForm";
 		}
 	@PostMapping("employeeById")
 		public	String employeebyId(@RequestParam Long employeeId, Model model) {
 		model.addAttribute("employee", employeeService.findById(employeeId));
-		return "employeeById";
+		return "employeeTemplates/employeeById";
 	}
 	@GetMapping("deleteEmployee")
 		public String deleteEmployeeById(@RequestParam Long employeeId, Model model) {
 			model.addAttribute("employeeId", employeeId);
-		return "deleteEmployee";
+		return "employeeTemplates/deleteEmployee";
 	}
 
 	@PostMapping("deleteEmployee")
@@ -61,7 +61,7 @@ public class EmployeeController {
 	@GetMapping("updateEmployee")
 	public String updateEmployee(@RequestParam Long employeeId, Model model) {
 		model.addAttribute("employee", employeeService.findById(employeeId));
-		return "updateEmployee";
+		return "employeeTemplates/updateEmployee";
 	}
 	@PostMapping("updateEmployee")
 	public String updateEmployee(@RequestParam String firstname, @RequestParam String lastname, @RequestParam double salary, @RequestParam LocalDate employmentDate, @RequestParam Long employeeId) {

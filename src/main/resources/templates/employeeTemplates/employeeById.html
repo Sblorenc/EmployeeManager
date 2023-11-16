@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+      
+    <head>
+		EmployeeById
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Employment Date</th>
+				<th>Salary</th>
+				<th>Department</th>
+			</tr>
+			<tr>
+				<td th:text="${employee.firstname}"></td>
+				<td th:text="${employee.lastname}"></td>
+				<td th:text="${employee.employmentDate}"></td>
+				<td th:text="${employee.salary}"></td>
+				<td th:text="${employee.id}"></td>
+				<td th:text="${employee.department.name}"></td>
+				<td>
+					<form action="#" th:action="@{deleteEmployee}" method="get" th:object="${employee}">
+						<input type="hidden" th:value=${employee.id} name="employeeId" id="employeeId">
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+				<td>
+					<form action="#" th:action="@{updateEmployee}" method="get" th:object="${employee}">
+						<input type="hidden" th:value=${employee.id} name="employeeId" id="employeeId">
+						<input type="submit" value="Update">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

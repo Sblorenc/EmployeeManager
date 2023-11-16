@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns="http://www.thymeleaf.org">
+	<head>
+		
+	</head>
+	<body>
+		<form action="#" th:action="@{updateDepartment}" th:object="${department}" method="post">
+			
+		Department name <input type="text" id="departmentName" name="departmentName" th:value="${department.name}">
+			<select id="employees" name="employees" multiple="multiple">
+			<option th:each="employee:${employees}" th:value="${employee.id}" th:text="${employee.lastname}"></option>
+		</select>
+		<input type="hidden" th:value="${department.id}" name="departmentId" id="departmentId">
+		<input type="submit">
+		</form>
+	</body>
+</html>

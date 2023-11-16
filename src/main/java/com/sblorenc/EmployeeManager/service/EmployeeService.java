@@ -2,7 +2,7 @@ package com.sblorenc.EmployeeManager.service;
 
 import java.util.*;
 
-
+import com.sblorenc.EmployeeManager.entity.Department;
 import com.sblorenc.EmployeeManager.entity.Employee;
 
 
@@ -16,5 +16,7 @@ public interface EmployeeService{
 	void deleteById(Long id);
 	
 	void update(Employee employee);
-
+	
+	List<Employee>findByDepartment(Department department);
+	
 }

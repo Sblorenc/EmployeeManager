@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 
 import java.util.List;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,7 @@ public class Department {
 	private Long id;
 	private String name;
 	@OneToMany(mappedBy="department")
+	@Nullable
 	public List <Employee> employees;
 	
 

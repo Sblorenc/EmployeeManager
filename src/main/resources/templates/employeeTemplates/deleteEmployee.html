@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="eng"
+	xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		
+	</head>
+	<body>
+		Are
+		<form acction="#" th:acction="@{deleteEmployeeByIdPost}" th:object="${employee}" method="post">
+			<select id="confirm" name="confirm">
+				<option th:text="yes" th:value="true"/>
+				<option th:text="no" th:value="false"/>
+			</select>
+			<input type="hidden" th:value="${employeeId}">
+			<input type="submit">
+		</form>
+	</body>
+</html>

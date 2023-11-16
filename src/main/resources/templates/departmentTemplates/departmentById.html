@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns="http://www.thymeleaf.org">
+	
+	<head>
+		
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>ID</th>
+			</tr>
+			<tr>
+				<td th:text="${department.name}"></td>
+				<td th:text="${department.id}"></td>
+				
+			</tr>
+		</table>
+		<table> 
+			<tr>
+				<th>Employees</th>
+			</tr>
+			<tr th:each="employee:${department.employees}">
+				<td th:text="${employee.lastname}"></td>
+			</tr>
+			<td>
+					<form action="#" th:action="@{deleteDepartment}" method="get" th:object="${department}">
+						<input type="hidden" th:value="${department.id}" name="departmentId" id="departmentId">
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+					<td>
+					<form action="#" th:action="@{updateDepartment}" method="get" th:object="${department}">
+						<input type="hidden" th:value="${department.id}" name="departmentId" id="departmentId">
+						<input type="submit" value="Update">
+					</form>
+				</td>
+		</table>
+	</body>
+</html>

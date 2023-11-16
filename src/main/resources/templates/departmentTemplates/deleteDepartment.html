@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns="http://www.thymleaf.org">
+	
+<head>
+	
+</head>
+<body>
+	<form acction="#" th:acction="@{deleteDepartment}" th:object="${department}" method="post">
+			<select id="confirm" name="confirm">
+				<option th:text="no" th:value="false"/>
+				<option th:text="yes" th:value="true"/>
+			</select>
+			<input type="hidden" th:value="${department.id}" name="departmentId" id="departmentId">
+			<input type="submit">
+		</form>
+</body>
+</html>

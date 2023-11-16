@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns="http://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		 <form action="#" th:action="@{departmentById}" method="post" th:object="${departmens}">
+			<select id="departmentId" name="departmentId">
+				<option th:each="department:${departments}" th:value="${department.id}" th:text="${department.name}"></option>
+			</select>
+				<input type="submit">
+		</form>
+	</body>
+</html>
